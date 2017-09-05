@@ -1,13 +1,15 @@
-# Floral
+# Floral :cherry_blossom:
 
-This is one more React styles library.
+Library that helps to use inline styles in React components.
 It doesn't convert styles to CSS or implement special features from CSS
 like pseudo-classes or media queries.
 It just helps to use plain inline styles and provides simple way to extend them.
 
 ## Install
 
-`npm install floral --save`
+```
+npm install floral --save
+```
 
 ## Usage
 
