@@ -1,0 +1,27 @@
+{
+  "name": "floral",
+  "version": "0.0.1",
+  "description": "Simple inline styles for React components",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "example": "gnoll start --config webpack.config.example",
+    "build": "gnoll lib",
+    "lint": "gnoll lint"
+  },
+  "keywords": [
+    "react",
+    "inline-styles"
+  ],
+  "author": "sunflowerdeath",
+  "license": "Unlicense",
+  "dependencies": {
+    "gnoll": "git+https://github.com/sunflowerdeath/gnoll.git",
+    "inline-style-prefixer": "^3.0.7",
+    "lodash.flatten": "^4.4.0",
+    "prop-types": "^15.5.10"
+  },
+  "devDependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  }
+}
