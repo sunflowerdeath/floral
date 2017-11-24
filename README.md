@@ -14,10 +14,10 @@ npm install floral --save
 ## Usage
 
 ```js
-import styledComponent from 'floral'
+import floral from 'floral'
 
 // Decorator that enables defining styles on component
-@styledComponent
+@floral
 class Button extends React.Component {
     // Property for defining styles
     // It is an object with styles of component's elements
@@ -34,7 +34,7 @@ class Button extends React.Component {
     }
 }
 
-import {composeStyles} from 'styled-component'
+import { composeStyles } from 'floral'
 
 class ColoredButton extends Button {
     // You can extend styles using `composeStyles`.
@@ -48,10 +48,10 @@ class ColoredButton extends Button {
 }
 
 // You can extend styles in place
-let bigButton = <Button styles={{root: {fontSize: 20}}}>Big Font</Button>
+let bigButton = <Button styles={{ root: { fontSize: 20 } }}>Big Font</Button>
 
 // Shorthand property for extending styles of the root element
-let bigButton = <Button style={{fontSize: 20}}>Big font</Button>
+let bigButton = <Button style={{ fontSize: 20 }}>Big font</Button>
 ```
 
 ## FAQ
@@ -71,7 +71,7 @@ Then don't use this library.
 
 ## API
 
-### @styledComponent
+### @floral
 
 Decorator that enables defining styles on components.
 
