@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import styledComponent, {composeStyles} from '../src'
+import floral, {composeStyles} from '../index'
 
-@styledComponent
+@floral
 class Button extends React.Component {
 	static styles = (props, state) => {
-		let root = {
+		const root = {
 			display: 'inline-block',
 			padding: 10,
 			backgroundColor: '#ccc',
@@ -53,7 +53,7 @@ class SizedButton extends Button {
 
 class GreenButton extends Button {
 	static styles = composeStyles(Button.styles, (props, state) => {
-		let root = {backgroundColor: '#2ea629', color: 'white'}
+		const root = {backgroundColor: '#2ea629', color: 'white'}
 		if (state.pressed) {
 			root.backgroundColor = '#286d25'
 		} else if (state.hovered) {

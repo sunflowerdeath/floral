@@ -1,5 +1,5 @@
-import styledComponent from './styledComponent'
+import floral from './floral'
 import composeStyles from './composeStyles'
 
-export default styledComponent
+export default floral
 export {composeStyles}

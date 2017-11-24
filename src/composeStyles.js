@@ -6,7 +6,7 @@ import flatten from 'lodash.flatten'
  * to single function that returns merged results.
  */
 export default function composeStyles(...stylesList) {
-	return function(props, state, context) {
+	return (props, state, context) => {
 		let composed = {}
 		let flatStylesList = flatten(stylesList)
 		for (let i in flatStylesList) {

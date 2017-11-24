@@ -1,14 +1,10 @@
-let path = require('path')
-let HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const merge = require('gnoll/utils/merge')
+const config = require('gnoll/config/webpack.js')
 
-let config = require('gnoll/config/webpack.js')
-
-config.entry = './example/index.js'
-
-config.plugins.push(new HtmlWebpackPlugin({
-	title: 'Floral example',
-	template: 'example/index.html',
-	inject: true
-}))
-
-module.exports = config
+module.exports = merge(config, {
+	entry: './src/example/index.js',
+	plugins: [
+		new HtmlWebpackPlugin({ title: 'Floral example', template: 'src/example/index.html' })
+	]
+})

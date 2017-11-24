@@ -1,6 +1,6 @@
 {
   "name": "floral",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple inline styles for React components",
   "main": "lib/index.js",
   "scripts": {
@@ -20,8 +20,8 @@
     "prop-types": "^15.5.10"
   },
   "devDependencies": {
-    "gnoll": "^0.1.1",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "gnoll": "^0.1.11",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1"
   }
 }
