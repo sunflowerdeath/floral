@@ -7,7 +7,7 @@
     "example": "gnoll start --config webpack.config.example",
     "build": "gnoll lib",
     "lint": "gnoll lint",
-    "test": "mocha-webpack --webpack-config webpack.config.test.js \"src/**/__tests__/*.js\"",
+    "test": "mocha-webpack --webpack-config webpack.config.test.js \"src/**/__tests__/*.js\" --no-interactive",
     "test-watch": "mocha-webpack --webpack-config webpack.config.test.js \"src/**/__tests__/*.js\" --watch"
   },
   "keywords": [
@@ -28,6 +28,7 @@
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-test-renderer": "^16.4.1",
-    "sinon": "^5.1.1"
+    "sinon": "^5.1.1",
+    "webpack-node-externals": "^1.7.2"
   }
 }
