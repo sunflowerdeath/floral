@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const merge = require('gnoll/utils/merge')
+const merge = require('webpack-merge')
 const config = require('gnoll/config/webpack.js')
 
 module.exports = merge(config, {
