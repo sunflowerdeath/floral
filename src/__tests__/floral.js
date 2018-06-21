@@ -6,7 +6,7 @@ import TestRenderer from 'react-test-renderer'
 
 import floral from '../floral.js'
 
-describe('floral', function() {
+describe('floral', () => {
 	it('function components', () => {
 		const STYLE = { color: 'red' }
 		const PROPS = { props: 'props' }
