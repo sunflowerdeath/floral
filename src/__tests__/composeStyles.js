@@ -1,6 +1,6 @@
 import assert from 'assert'
 
-import composeStyles from '../composeStyles.js'
+import { composeStyles } from '../index.js'
 
 describe('floral/composeStyles', function() {
 	it('composes styles', function() {

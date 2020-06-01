@@ -26,38 +26,28 @@ const styles = {
     }
 }
 
-// Also, styles definition can be a function that takes
-// current props and state and returns object with styles.
-const styles = (props /*, state */) => ({
+// Another option is to define styles with function that takes
+// props and other dependencies and returns object with styles.
+const styles = (props /*, state1, state2, ... */) => ({
     root: {
         fontSize: props.size === 'big' ? '20px' : '15px'
     }
 })
 
-// Decorator that adds styles to component
-@floral(styles)
-class Button extends React.Component {
-    render() {
-        // Get computed styles from state
-        const styles = this.state.computedStyles
-        return <div style={styles.root}>{this.props.children}</div>
-    }
-}
-
-// Use with functional components
-const Button = floral(styles)(props => {
-    // Get computed styles from props
-    const styles = props.computedStyles
-    return <div style={styles.root}>{props.children}</div>
+const Button = props => {
+    const [isHovered, setIsHovered] = useState(false)
+    // Hook that allows to use styles in the component
+    const computedStyles = useStyles(styles, [props, isHovered])
+    return <div style={computedStyles.root}>{props.children}</div>
 })
 ```
 
-### Use of styled components
+### Using styled components
 
 ```js
 let bigButton = <Button size="big">Big button</Button>
 
-// You can extend styles in place
+// Extending styles through props
 let redButton = <Button styles={{ root: { color: 'red' } }}>Red</Button>
 
 // Shorthand property for extending styles of the root element
@@ -67,21 +57,13 @@ let greenButton = <Button style={{ color: 'green' }}>Green</Button>
 ### Extending styled components
 
 ```js
-// You can create new component with additional styles
-import { composeStyles } from 'floral'
+// You can make new component that extends styles of another one
+import { extendComponentStyles } from 'floral'
 
 const coloredButtonStyles = props => ({
     root: { background: props.color }
 })
-
-@floral(
-    // composeStyles combines multiple styles definitions
-    composeStyles(Button.styles, coloredButtonStyles)
-)
-class ColoredButton extends Button.innerComponent {}
-
-// Same as above, but shorter
-import { extendComponentStyles } from 'floral'
+    
 const ColoredButton2 = extendComponentStyles(Button, coloredButtonStyles)
 ```
 
@@ -103,19 +85,17 @@ All these features can be implemented with Javascript.
 
 ## API
 
-### floral(styles)
+### useStyles(styles, [props, ...restDeps])
 
-Decorator that adds styles to component.
+Hook that allows to use styles in the component.
 
 Styles definition can be an object with styles of component's elements,
 or a function that takes props and state and returns such object.
 
-When rendering, computed styles are available
-in `this.state.computedStyles` for class components,
-and in `this.props.computedStyles` for functional components.
+Returns an object with computed styles.
 
-Using prop `styles`, you can set additional styles on decorated component,
-and prop `style` for defining style of the root element.
+Hook search additional styles definitions in props `styles`, and in the prop
+`style` for the `root` element.
 
 ### composeStyles(...styles)
 
@@ -124,10 +104,6 @@ Composes multiple styles definitions in one.
 ### extendComponentStyles(styledComponent, styles)
 
 Creates new styled component extended with additional styles.
-
-## TODO
-
-Document auto prefixing and server rendering
 
 ## License
 

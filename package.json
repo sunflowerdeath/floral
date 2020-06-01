@@ -1,6 +1,6 @@
 {
   "name": "floral",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Simple inline styles for React components",
   "main": "lib/index.js",
   "scripts": {
@@ -17,16 +17,16 @@
   "author": "sunflowerdeath",
   "license": "Unlicense",
   "dependencies": {
-    "inline-style-prefixer": "^3.0.7",
-    "lodash.flatten": "^4.4.0",
+    "lodash.flattendeep": "^4.4.0",
+    "lodash.compact": "^3.0.1",
     "prop-types": "^15.5.10"
   },
   "devDependencies": {
-    "gnoll": "^0.5.0-3",
+    "gnoll": "^0.7.0-alpha.4",
     "mocha": "^5.2.0",
     "mocha-webpack": "^2.0.0-beta.0",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "react-test-renderer": "^16.4.1",
     "sinon": "^5.1.1",
     "webpack-node-externals": "^1.7.2"
