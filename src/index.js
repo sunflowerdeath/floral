@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, forwardRef } from 'react'
 import flattenDeep from 'lodash.flattendeep'
 import compact from 'lodash.compact'
 
@@ -16,12 +16,14 @@ const composeStyles = (...stylesList) => (...deps) => {
     return composed
 }
 
-const extendComponentStyles = (Component, styles) => props => (
-    <Component
-        {...props}
-        styles={'styles' in props ? [styles, props.styles] : styles}
-    />
-)
+const extendComponentStyles = (Component, styles) =>
+    forwardRef((props, ref) => (
+        <Component
+            {...props}
+            ref={ref}
+            styles={'styles' in props ? [styles, props.styles] : styles}
+        />
+    ))
 
 const useStyles = (styles, [props, ...restDeps]) => {
     let stylesFn = useMemo(() => {
